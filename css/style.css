@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 p,
 ul li {
   line-height: 30px;
-  font-size: 15px;
+  font-size: 16px;
 }
 footer {
   margin-top: 20px;
@@ -20,30 +20,32 @@ footer {
 }
 .navbar-forward {
   border-radius: 0px;
-  background: url("../image/head-bg.png") center center;
+  border-bottom: 1px solid #418589;
 }
 .main-nav-link {
-  color: #fff;
+  color: #418589;
   font-size: 16px;
+}
+.article-container {
+  width: 960px;
+  margin: 0 auto;
 }
 .header-text a {
   line-height: 52px;
   font-size: 37px;
   text-transform: uppercase;
-  font-weight: 100;
+  font-weight: 700;
   letter-spacing: 0.3px;
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  color: #418589;
   -webkit-animation-duration: 1s;
 }
 h5.header-description {
   margin: 0 auto;
   line-height: 20px;
   width: 350px;
-  font-weight: 100;
+  font-weight: 400;
   letter-spacing: 0.3px;
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  color: #418589;
   -webkit-animation-duration: 1s;
 }
 ul.nav-link li {
@@ -52,6 +54,7 @@ ul.nav-link li {
 h1.article-title,
 h1 a.article-title {
   color: #418589;
+  font-size: 46px;
 }
 h1 a.article-title:hover {
   text-decoration: none;
