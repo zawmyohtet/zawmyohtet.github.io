@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tax Calculator</title>
+       <!-- Material Design fonts -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+        <!-- Bootstrap Material Design -->
+        <link rel="stylesheet" type="text/css" href="
+http://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.8/css/bootstrap-material-design.css">
+        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.8/css/ripples.min.css">
+     
+        <style type="text/css">
+        </style>
+    </head>
+
+    <body>
+
+        <div class="bs-component">
+            <div class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="javascript:void(0)">Tax Calculator</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container well">
+                
+            <div class="row">
+                <div class="col-md-6">
+
+                    <form class="form-horizontal" id="tax-form">
+                        
+                        <fieldset>
+                            <legend>Personal Data</legend>
+
+                            <div class="form-group">
+                                <label for="income" class="col-md-3 control-label">Income(per month)</label>
+                                <div class="col-md-9">
+                                    <input type="number" min="0" class="form-control" id="income" placeholder="999,999,999,999,999">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="parent" class="col-md-3 control-label">Together with parent</label>
+
+                                <div class="col-md-9">
+                                    <select id="parent" class="form-control">
+                                        <option value="2">Still giving trouble to parent</option>
+                                        <option value="1">With Super Dad</option>
+                                        <option value="1">With Lovely Mon</option>
+                                        <option value="0">Only One but Lion!</option>
+                                    </select>
+                                  </div>
+                            </div> 
+
+                            <div class="form-group">
+                                <label for="relationship" class="col-md-3 control-label">Wife/Husband</label>
+
+                                <div class="col-md-9">
+                                    <select id="relationship" class="form-control">
+                                        <option value="0">No, I am FA.</option>
+                                        <option value="1">Yes, I have.</option>
+                                        <option value="0">Oh! I have more than one!</option>
+                                        <option value="0">OMG! I have both wife and husband!</option>
+                                    </select>
+                                  </div>
+                            </div> 
+
+                            <div class="form-group">
+                                <label for="children" class="col-md-3 control-label">Children</label>
+
+                                <div class="col-md-9">
+                                    <select id="children" class="form-control">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="0">Ok! You are super man. Salute!</option>
+                                    </select>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="health" class="col-md-3 control-label">Health Insurance(per month)</label>
+                                <div class="col-md-9">
+                                    <input type="number" min="0" class="form-control" id="health" placeholder="9999">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="psb" class="col-md-3 control-label">SB(per month)</label>
+                                <div class="col-md-9">
+                                    <input type="number" min="0" class="form-control" id="psb" placeholder="99999">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2 col-md-offset-10">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                    </form>
+
+                </div>
+               
+                <div class="col-md-6">
+
+                    <legend>Result</legend>
+
+                    <h4 class="text-info text-center">Yearly Amount</h4>
+
+                    <h2 class="yearly-amount text-center">-</h2>
+
+                    <h4 class="text-info text-center">Monthly Amount</h4>
+
+                    <h2 class="monthly-amount text-center">-</h2>
+
+                </div>
+
+ 
+            </div>
+
+        </div>
+
+        <!-- Your site ends -->
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.8/js/ripples.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.8/js/material.min.js"></script>
+        
+        <script>
+            var income = 0;
+            var grant = 0.2;
+            var grantMaxCap = 10000000;
+            var paternalGrantRate = 1000000;
+            var familyGrantRate = 1000000;
+            var childrenGrantRate = 500000;
+
+            var border = [2, 5, 10, 20, 30];
+            var percent = [0.05, 0.10, 0.15, 0.20, 0.25];
+            var maxCap = [150000, 500000, 1500000, 2000000, null];
+            var layerGrant = [3000000, 5000000, 10000000, 10000000, 0];
+
+            var paternalSize = 0;
+            var children = 0;
+            var isSingle = true;
+            var taxAmtByLayer = [];
+            var totalTax = 0
+            var health = 0;
+            var psb = 0;
+
+            $("#income").focusout(function(){
+                income = $("#income").val();
+            });
+
+            $("#parent").change(function(){
+                paternalSize = $("#parent option:selected").val();
+            });
+
+            $("#relationship").change(function(){
+                if ($("#relationship option:selected").val() != 0) {
+                    $("#children").removeAttr("disabled"); 
+                } else {
+                    $("#children").attr("disabled", "");
+                }
+            });
+
+            $("#children").change(function(){
+                children = $("#children option:selected").val();
+            });
+
+            var calculate = function () {
+                
+                income = $("#income").val();
+                paternalSize = $("#parent option:selected").val();
+                isSingle = ($("#relationship option:selected").val() != 0 ? false : true);
+                children = isSingle ? 0 : $("#children option:selected").val();
+                health = $("#health").val() * 12;
+                psb = $("#psb").val() * 12;
+
+                var yearlyIncome = (income * 12);
+
+                var incomeGrant = yearlyIncome * 0.2;
+
+                incomeGrant = (incomeGrant > grantMaxCap) ? grantMaxCap : incomeGrant;
+
+                var paternalGrant = paternalGrantRate * paternalSize;
+
+                var familyGrant = (!isSingle) ? familyGrantRate : 0;
+
+                var amountToCalculate = yearlyIncome - (incomeGrant + (paternalGrantRate * paternalSize) + familyGrant + (childrenGrantRate * children) + health + psb );
+
+                var simplifyValue = amountToCalculate / 1000000;
+
+                var baseAmount = amountToCalculate;
+                var layerTotal = 0
+                var layer = 0;
+                taxAmtByLayer = [];
+                totalTax = 0;
+
+                if (simplifyValue > 2) {
+                    baseAmount = baseAmount - 2000000;
+                } 
+
+                for (var i = 0; i < border.length; i++) {
+                   
+                    if (simplifyValue > border[i]) {
+
+                        layer = (baseAmount * percent[i]);
+
+                        if (maxCap[i] != null) {
+                            layer = layer > maxCap[i] ? maxCap[i] : layer;
+                        }
+
+                        layerTotal = layerTotal + layer;
+                        taxAmtByLayer.push(simplifyValue > border[i + 1] ? layerTotal : layer);
+                        totalTax = totalTax + (simplifyValue > border[i + 1] ? layerTotal : layer);
+
+                        baseAmount = baseAmount - layerGrant[i];
+                    }
+
+                } 
+
+                $(".yearly-amount").text(totalTax.toLocaleString() + " MMK");
+                $(".monthly-amount").text(Math.ceil(totalTax / 12).toLocaleString() + " MMK");
+            }
+
+            $("#tax-form").submit(function(event){
+                event.preventDefault();
+                calculate();
+            });
+
+        </script>
+
+    </body>
+</html>
