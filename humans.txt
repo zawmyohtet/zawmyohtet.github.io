@@ -1,9 +1,0 @@
-# humanstxt.org/
-
-# TEAM
-
-	Zaw Myo Htet - Blog
-
-# TECHNOLOGY
-
-	HTML5, CSS3, JS, JEKYLL

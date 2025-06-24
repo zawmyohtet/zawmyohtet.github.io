@@ -1,5 +1,8 @@
-# www.robotstxt.org/
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
 
-# Allow crawling of all content
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: http://zawmyohtet.github.io/sitemap-index.xml
