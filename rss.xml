@@ -105,6 +105,9 @@ networks:
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;In this configuration, we expose ports &lt;strong&gt;8888&lt;/strong&gt; for Jupyter and &lt;strong&gt;2024&lt;/strong&gt; for LangGraph Studio. The &lt;strong&gt;volumes&lt;/strong&gt; section ensures your project files in &lt;strong&gt;workspace&lt;/strong&gt; and any configuration in &lt;strong&gt;config&lt;/strong&gt; are accessible within the container.&lt;/p&gt;
 &lt;p&gt;With the files in place, navigate to your project root in the terminal and start the Docker environment:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;docker compose up -d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To check the status:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;docker compose ps
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To access the command line within your Docker environment:&lt;/p&gt;
