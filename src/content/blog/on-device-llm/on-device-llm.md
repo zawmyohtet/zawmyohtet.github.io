@@ -17,7 +17,7 @@ My story didn't end there! I had the incredible opportunity to attend Google I/O
 
 But my interest certainly didn't stop there. I decided to dig even deeper. Why not build something myself and truly get my hands dirty with the developer experience? This meant hours spent searching for the perfect model, grappling with the Android LLM Inference API, meticulously figuring out the UI, and dusting off my old Android development knowledge. So far, the UI is heavily inspired by the Google Gen AI Edge Gallery project and create the rewrite feature on my own way. I use [litert-community/Gemma3-1B-IT](https://huggingface.co/litert-community/Gemma3-1B-IT/tree/main) model. 
 
-![Device](./screenshot_20250624_001128.png)
+![Device](./Screenshot_20250624_001128.png)
 
 To Sum Up My On-Device LLM Journey:
 

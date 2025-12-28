@@ -16,7 +16,7 @@ While I am preparing containerised developments for agentic application developm
 This include three containerised environments, 
 - jupyter notebook
 - python environment for agent development
-- python + notejs environment for MCP server development
+- python + nodejs environment for MCP server development
 
 Environments are designed to fulfil all necessary requirements to start building and testing your agentic application. It also contains a few example and complete setup guides. 
 
