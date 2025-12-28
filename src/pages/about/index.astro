@@ -1,0 +1,40 @@
+---
+import PageLayout from '@/layouts/CommonPage.astro'
+
+const headings = [
+  { depth: 2, slug: 'software-engineering', text: 'Software Engineering' },
+  { depth: 2, slug: 'infrastructure-devops', text: 'Infrastructure & DevOps' },
+  { depth: 2, slug: 'performance-optimization', text: 'Performance & Optimization' },
+  { depth: 2, slug: 'agentic-application', text: 'Agentic Application' },
+  { depth: 2, slug: 'mentorship-leadership', text: 'Mentorship & Leadership' }
+]
+
+---
+
+<PageLayout title='About' {headings} info='/about'>
+  <p>
+    I'm Zaw Myo Htet, a Software Engineer with a passion for crafting high-performance software that's both robust and user-friendly. My expertise spans backend development, infrastructure design, and the integration of cutting-edge intelligent systems, including agentic AI applications.
+  </p>
+  <p>
+    Beyond coding, I occasionally write tech blogs, sharing insights and contributing to the tech community. I also enjoy mentoring aspiring engineers, helping them navigate their career paths.
+  </p>
+
+  <h2>What I Do</h2>
+  <ul>
+    <li id='software-engineering'>
+      <b>Software Engineering:</b> I specialize in designing and developing fault-tolerant, high-performance systems capable of handling millions of requests daily, with a strong focus on backend architecture and scalable solutions.
+    </li>
+    <li id='infrastructure-devops'>
+      <b>Infrastructure & DevOps:</b> My experience includes extensive work with cloud platforms like AWS and GCP, focusing on infrastructure design, maintenance, cost optimization, and implementing robust CI/CD pipelines.
+    </li>
+    <li id='performance-optimization'>
+      <b>Performance & Optimization:</b> I have a proven track record in performance tuning and cost saving for large-scale e-commerce platforms and ISP infrastructure. This includes real-time processing systems designed for high efficiency and minimal maintenance.
+    </li>
+    <li id='agentic-application'>
+      <b>Agentic AI & Machine Learning Application Development:</b> I focus on building and integrating agentic AI applications. This involves designing intelligent systems that can autonomously make decisions, take actions, and interact with external environments to achieve complex goals. I am adept at creating solutions for tasks like personalized recommendations, advanced analytics, and automated workflows by orchestrating these AI agents.
+    </li>
+    <li id='mentorship-leadership'>
+      <b>Mentorship & Leadership:</b> I enjoy leading development teams, defining coding standards, and fostering good practices within organizations. My experience includes guiding teams to produce award-winning products and working with cross-functional teams to align technical solutions with business needs.
+    </li>
+  </ul>
+</PageLayout>

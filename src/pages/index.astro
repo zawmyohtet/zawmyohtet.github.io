@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets'
+
+import { PostPreview } from 'astro-pure/components/pages'
+import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
+import { Button, Card, Icon, Label } from 'astro-pure/user'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import Section from '@/components/home/Section.astro'
+import avatar from '@/assets/avatar.jpeg'
+import config from '@/site-config'
+
+const MAX_POSTS = 10
+const allPosts = await getBlogCollection()
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+---
+
+<PageLayout meta={{ title: 'Home' }} highlightColor='#659EB9'>
+  <main class='flex w-full flex-col items-center'>
+    <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
+      <Image
+        src={avatar}
+        alt='profile'
+        class='h-28 w-auto rounded-full border p-1'
+        loading='eager'
+      />
+
+      <div class='flex flex-col items-center gap-y-4'>
+        <h1 class='text-3xl font-bold'>{config.author}</h1>
+        <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
+          <Label title='Singapore'>
+            <Icon name='location' class='size-5' slot='icon' />
+          </Label>
+          <Label
+            title='LinkedIn'
+            as='a'
+            href='http://linkedin.com/in/zawmyohtet/'
+            target='_blank'
+          >
+            <Icon name='link' class='size-5' slot='icon' />
+          </Label>
+        </div>
+      </div>
+    </section>
+
+    <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
+      <Section title='About'>
+        <p class='text-muted-foreground'>
+          A Software Engineer with a passion for crafting high-performance software that's both robust and user-friendly. My expertise spans backend development, infrastructure design, and the integration of cutting-edge intelligent systems, including agentic AI applications.
+        </p>
+        <p class='text-muted-foreground'>
+          Beyond coding, I occasionally write tech blogs, sharing insights and contributing to the tech community. I also enjoy mentoring aspiring engineers, helping them navigate their career paths. 
+        </p>
+        <Button title='More about me' class='w-fit self-end' href='/about' style='ahead' />
+      </Section>
+      {
+        allPostsByDate.length > 0 && (
+          <Section title='Posts'>
+            <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
+              {allPostsByDate.map((p) => (
+                <li class='flex flex-col gap-x-2 sm:flex-row'>
+                  <PostPreview post={p} />
+                </li>
+              ))}
+            </ul>
+            <Button title='More posts' class='w-fit self-end' href='/blog' style='ahead' />
+          </Section>
+        )
+      }
+
+      {
+    </div>
+  </main>
+</PageLayout>
